@@ -179,3 +179,14 @@ i.fa-star {
 }
 .fa-reply {
 }
+.app__header-inner{
+    color: #fff;
+    text-align: center;
+}
+.app__count{
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+.app__text{
+    font-size: 18px;
+}
