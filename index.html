@@ -11,22 +11,22 @@
 </head>
 <body>
 
-    <div class="main" v-show="showMain">
+    <div class="main">
 
-        <div class="app">
+        <div class="app"  v-show="showMain">
             <div class="app__header">
                 <img src="img/logo.png" class="app__logo">
             </div>
             <div class="app__body">
-                <button class="app__btn">
+                <button class="app__btn" @click="goToQuestions">
                     <i class="fa fa-play-circle-o" aria-hidden="true"></i>
                     <div class="app__btn-text">Start</div>
                 </button>
-                <button class="app__btn">
+                <button class="app__btn" @click="goToAchivement">
                     <i class="fa fa-trophy" aria-hidden="true"></i>
                     <div class="app__btn-text">Achievements</div>
                 </button>
-                <button class="app__btn">
+                <button class="app__btn" @click="goToSocial">
                     <i class="fa fa-user" aria-hidden="true"></i>
                     <div class="app__btn-text">Autor</div>
                 </button>
@@ -117,7 +117,7 @@
                     <i class="fa fa-youtube-play" aria-hidden="true"></i>
                     <div class="app__btn-text">Youtube</div>
                 </a>
-                <button class="app__btn btn__back">
+                <button class="app__btn btn__back" @click="goToMain">
                     <i class="fa fa-reply" aria-hidden="true"></i>
                 </button>
             </div>
@@ -178,6 +178,55 @@
                 questions: questions,
                 results: results,
                 resultRace: 'infested',
+            }, 
+            methods: {
+                goToMain(){
+                    this.showMain = true
+                    this.showSocial = false
+                    this.showAchievment = false
+                    this.showQuestions = false
+                    this.showResult = false
+                }, 
+                goToSocial(){
+                    this.showMain = false
+                    this.showSocial = true
+                    this.showAchievment = false
+                    this.showQuestions = false
+                    this.showResult = false
+                }, 
+                goToAchivement(){
+                    if(this.totalGames>0){
+                        this.showMain = false
+                        this.showSocial = false
+                        this.showAchievment = true
+                        this.showQuestions = false
+                        this.showResult = false
+                    }else{
+                        this.goToQuestions()
+                    }
+                }, 
+                goToQuestions(){
+                    this.score = {
+                    'zerg': 0,
+                    'primal': 0,
+                    'protos': 0,
+                    'taldarim': 0,
+                    'terran': 0,
+                    }
+                    this.showMain = false
+                    this.showSocial = false
+                    this.showAchievment = false
+                    this.showQuestions = true
+                    this.showResult = false
+                },
+                goToResult(race){
+                    this.showMain = false
+                    this.showSocial = false
+                    this.showAchievment = false
+                    this.showQuestions = false
+                    this.showResult = true
+                    this.resultRace = race
+                }
             }
         })
     </script>
