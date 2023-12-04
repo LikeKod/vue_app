@@ -237,6 +237,40 @@
                     this.number++
                     }
                     eval(answer)
+                },
+                endGame(){
+                    this.totalGames++
+                    localStorage.setItem('sc2TotalGames', this.totalGames)
+                    // Zerg
+                    if(this.score.zerg > this.score.protos && this.score.zerg > this.score.terran && this.score.primal < 8 && Math.abs(this.score.protos - this.score.zerg) > 3){
+                        this.goToResult('zerg')
+                        this.totalGame.zerg++
+                    }//Clear zerg
+                    else if (this.score.primal > this.score.protos && this.score.primal > this.score.terran && this.score.primal == 8){
+                        this.goToResult('primal')
+                        this.totalGame.primal++
+                    }//Protos
+                    else if (this.score.protos > this.score.zerg && this.score.protos > this.score.terran && this.score.taldarim < 5 && Math.abs(this.score.protos -this.score.zerg)>3){
+                        this.goToResult('protos')
+                        this.totalGame.protos++
+                    }//Taldarim
+                    else if (this.score.protos > this.score.zerg && this.score.protos > this.score.terran && this.score.taldarim == 5){
+                        this.goToResult('primal')
+                        this.totalGame.primal++
+                    }//Terran
+                    else if (this.score.terran > this.score.zerg && this.score.terran > this.score.protos){
+                        this.goToResult('terran')
+                        this.totalGame.terran++
+                    }//Hybrid
+                    else if (Math.abs(this.score.protos - this.score.zerg)<=3){
+                        this.goToResult('hybrid')
+                        this.totalGame.hybrid++
+                    }//Infested
+                    else{
+                        this.goToResult('infested')
+                        this.totalGame.infested++
+                    }
+                    localStorage.setItem('sc2TotalGame', JSON.stringify(this.totalGame))
                 }
             }
         })
