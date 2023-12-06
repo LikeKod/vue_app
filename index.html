@@ -48,8 +48,8 @@
                     </h2>
                     <div class="app__body-top">
                         <div class="app__card">
-                            <div class="app__card-text">Score</div>
-                            <div class="app__card-count">0</div>
+                            <div class="app__card-text">Total score</div>
+                            <div class="app__card-count">{{ totalScore }}</div>
                         </div>
                         <div class="app__card">
                             <div class="app__card-text">Open race</div>
@@ -57,7 +57,7 @@
                         </div>
                         <div class="app__card">
                             <div class="app__card-text">Total games</div>
-                            <div class="app__card-count">0</div>
+                            <div class="app__card-count">{{ totalGames }}</div>
                         </div>
                         <div class="app__card">
                             <div class="app__card-text">Favorite race</div>
@@ -75,7 +75,7 @@
                         </div>
                     </div>
                     <div class="app__body-bottom">
-                        <button class="app__btn btn__back btn__achievements">
+                        <button class="app__btn btn__back btn__achievements" @click="goToMain">
                             <i class="fa fa-reply" aria-hidden="true"></i>
                         </button>
                     </div>
@@ -272,6 +272,15 @@
                         this.totalGame.infested++
                     }
                     localStorage.setItem('sc2TotalGame', JSON.stringify(this.totalGame))
+                }
+            },
+            computed: {
+                totalScore() {
+                    let score = 0
+                    for(let i in this.totalGame) {
+                        score += (this.totalGame[i]*results[i].points)
+                    }
+                    return results[i]
                 }
             }
         })
