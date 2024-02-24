@@ -24,7 +24,7 @@ i.fa{
     }
 }
 .main{
-    background-image: url(/img/background__main.jpg);
+    background-image: url(img/background__main.jpg);
     background-repeat: repeat-x;
     background-size: cover;
     animation: slide 90s linear infinite;
@@ -224,26 +224,26 @@ i.fa-star {
     background-position: center center;
 }
 .app.results[data-race='zerg']{
-    background-image: url(/img/zerg_bg.jpg);
+    background-image: url(img/zerg_bg.jpg);
 }
 .app.results[data-race='primal']{
-    background-image: url(/img/primal_bg.jpg);
+    background-image: url(img/primal_bg.jpg);
 }
 .app.results[data-race='terran']{
-    background-image: url(/img/terran_bg.jpg);
+    background-image: url(img/terran_bg.jpg);
 }
 .app.results[data-race='infested']{
-    background-image: url(/img/infested_bg.jpg);
+    background-image: url(img/infested_bg.jpg);
 }
 .app.results[data-race='protoss']{
-    background-image: url(/img/protoss_bg.jpg);
+    background-image: url(img/protoss_bg.jpg);
 }
 .app.results[data-race='taldarim']{
-    background-image: url(/img/taldarim_bg.jpg);
+    background-image: url(img/taldarim_bg.jpg);
     background-position: 40% 0;
 }
 .app.results[data-race='hybrid']{
-    background-image: url(/img/hybrid_bg.jpg);
+    background-image: url(img/hybrid_bg.jpg);
     background-position: 45% 0;
 }
 .btn__zerg {
