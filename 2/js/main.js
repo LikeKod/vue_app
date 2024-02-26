@@ -18,7 +18,11 @@ const App = {
     },
     computed: {
       computedTotalScore() {
-  
+        this.totalScore = 0
+        for(let i = 0; i>this.values.length; i++){
+          this.totalScore+=this.values[i]
+        }
+        return this.totalScore
       },
       computedOverallRating() {
   
