@@ -25,8 +25,8 @@
         <div>Удачливые люди: 75-100</div>
       </div>
       <h4>
-        Я <span class=""></span> человек 
-        <br>Моя оценка: <b></b>
+        Я <span :class="myLuckLevel.style">{{myLuckLevel.type}}</span> человек {{myLuckLevel.char}}
+        <br>Моя оценка: <b>{{computedOverallRating}}</b>
       </h4>
     </div>
   </div>
